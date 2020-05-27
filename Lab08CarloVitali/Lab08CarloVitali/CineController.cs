@@ -7,10 +7,17 @@ using System.Windows.Forms;
 
 namespace Lab08CarloVitali
 {
+    [Serializable]
     class CineController
     {
+        
         public List<Cine> cines = new List<Cine>();
         Form1 Appform;
+
+        public void print()
+        {
+            //Lista.Text = String.Join(Environment.NewLine, cines);
+        }
 
         /*public CineController(Form form)
         {

@@ -1,5 +1,12 @@
-﻿namespace Lab08CarloVitali
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab08CarloVitali
 {
+   
     partial class Form1
     {
         /// <summary>
@@ -32,6 +39,7 @@
             this.Principal = new System.Windows.Forms.Panel();
             this.pAgregar = new System.Windows.Forms.Panel();
             this.pInfoNuevoLocal = new System.Windows.Forms.Panel();
+            this.confirmacionAgregado = new System.Windows.Forms.Panel();
             this.pInfoNuevoRecreacional = new System.Windows.Forms.Panel();
             this.bAgregarNuevoRecreacional = new System.Windows.Forms.Button();
             this.bAtrasInfoNuevoRecreacional = new System.Windows.Forms.Button();
@@ -68,7 +76,9 @@
             this.bLista = new System.Windows.Forms.Button();
             this.bRevisar = new System.Windows.Forms.Button();
             this.bAgregar = new System.Windows.Forms.Button();
-            this.confirmacionAgregado = new System.Windows.Forms.Panel();
+            this.pLista = new System.Windows.Forms.Panel();
+            this.Lista = new System.Windows.Forms.RichTextBox();
+            this.bAtrasLista = new System.Windows.Forms.Button();
             this.Principal.SuspendLayout();
             this.pAgregar.SuspendLayout();
             this.pInfoNuevoLocal.SuspendLayout();
@@ -76,12 +86,14 @@
             this.pInfoNuevoRestaurant.SuspendLayout();
             this.pInfoNuevaTienda.SuspendLayout();
             this.pInfoNuevoCine.SuspendLayout();
+            this.pLista.SuspendLayout();
             this.SuspendLayout();
             // 
             // Principal
             // 
             this.Principal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Principal.BackgroundImage")));
             this.Principal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Principal.Controls.Add(this.pLista);
             this.Principal.Controls.Add(this.pAgregar);
             this.Principal.Controls.Add(this.bLista);
             this.Principal.Controls.Add(this.bRevisar);
@@ -101,9 +113,9 @@
             this.pAgregar.Controls.Add(this.bTienda);
             this.pAgregar.Controls.Add(this.label9);
             this.pAgregar.Controls.Add(this.label10);
-            this.pAgregar.Location = new System.Drawing.Point(0, 0);
+            this.pAgregar.Location = new System.Drawing.Point(0, 12);
             this.pAgregar.Name = "pAgregar";
-            this.pAgregar.Size = new System.Drawing.Size(517, 375);
+            this.pAgregar.Size = new System.Drawing.Size(514, 363);
             this.pAgregar.TabIndex = 3;
             this.pAgregar.Visible = false;
             // 
@@ -122,12 +134,22 @@
             this.pInfoNuevoLocal.Controls.Add(this.label1);
             this.pInfoNuevoLocal.Controls.Add(this.input_Numero_Identificador);
             this.pInfoNuevoLocal.Controls.Add(this.input_Nombre_Dueño);
-            this.pInfoNuevoLocal.Location = new System.Drawing.Point(0, 0);
+            this.pInfoNuevoLocal.Location = new System.Drawing.Point(0, 12);
             this.pInfoNuevoLocal.Name = "pInfoNuevoLocal";
-            this.pInfoNuevoLocal.Size = new System.Drawing.Size(517, 378);
+            this.pInfoNuevoLocal.Size = new System.Drawing.Size(503, 366);
             this.pInfoNuevoLocal.TabIndex = 5;
             this.pInfoNuevoLocal.Visible = false;
             this.pInfoNuevoLocal.Paint += new System.Windows.Forms.PaintEventHandler(this.pInfoNuevaTienda_Paint);
+            // 
+            // confirmacionAgregado
+            // 
+            this.confirmacionAgregado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("confirmacionAgregado.BackgroundImage")));
+            this.confirmacionAgregado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.confirmacionAgregado.Location = new System.Drawing.Point(12, 12);
+            this.confirmacionAgregado.Name = "confirmacionAgregado";
+            this.confirmacionAgregado.Size = new System.Drawing.Size(478, 324);
+            this.confirmacionAgregado.TabIndex = 2;
+            this.confirmacionAgregado.Visible = false;
             // 
             // pInfoNuevoRecreacional
             // 
@@ -463,15 +485,34 @@
             this.bAgregar.UseVisualStyleBackColor = true;
             this.bAgregar.Click += new System.EventHandler(this.bAgregar_Click);
             // 
-            // confirmacionAgregado
+            // pLista
             // 
-            this.confirmacionAgregado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("confirmacionAgregado.BackgroundImage")));
-            this.confirmacionAgregado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.confirmacionAgregado.Location = new System.Drawing.Point(12, 12);
-            this.confirmacionAgregado.Name = "confirmacionAgregado";
-            this.confirmacionAgregado.Size = new System.Drawing.Size(478, 324);
-            this.confirmacionAgregado.TabIndex = 2;
-            this.confirmacionAgregado.Visible = false;
+            this.pLista.Controls.Add(this.bAtrasLista);
+            this.pLista.Controls.Add(this.Lista);
+            this.pLista.Location = new System.Drawing.Point(0, 0);
+            this.pLista.Name = "pLista";
+            this.pLista.Size = new System.Drawing.Size(517, 372);
+            this.pLista.TabIndex = 4;
+            this.pLista.Visible = false;
+            // 
+            // Lista
+            // 
+            this.Lista.Location = new System.Drawing.Point(0, 0);
+            this.Lista.Name = "Lista";
+            this.Lista.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.Lista.Size = new System.Drawing.Size(514, 331);
+            this.Lista.TabIndex = 0;
+            this.Lista.Text = "";
+            // 
+            // bAtrasLista
+            // 
+            this.bAtrasLista.Location = new System.Drawing.Point(207, 340);
+            this.bAtrasLista.Name = "bAtrasLista";
+            this.bAtrasLista.Size = new System.Drawing.Size(83, 23);
+            this.bAtrasLista.TabIndex = 1;
+            this.bAtrasLista.Text = "atrás";
+            this.bAtrasLista.UseVisualStyleBackColor = true;
+            this.bAtrasLista.Click += new System.EventHandler(this.bAtrasLista_Click);
             // 
             // Form1
             // 
@@ -493,6 +534,7 @@
             this.pInfoNuevaTienda.PerformLayout();
             this.pInfoNuevoCine.ResumeLayout(false);
             this.pInfoNuevoCine.PerformLayout();
+            this.pLista.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -539,5 +581,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel confirmacionAgregado;
+        private System.Windows.Forms.Panel pLista;
+        private System.Windows.Forms.RichTextBox Lista;
+        private System.Windows.Forms.Button bAtrasLista;
     }
 }

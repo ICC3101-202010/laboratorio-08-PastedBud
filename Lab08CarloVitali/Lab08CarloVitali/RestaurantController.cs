@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab08CarloVitali
 {
+    [Serializable]
     class RestaurantController
     {
         public List<Restaurante> restaurantes = new List<Restaurante>();
