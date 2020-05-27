@@ -1,0 +1,10 @@
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\bin\Debug\Lab08CarloVitali.exe.config
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\bin\Debug\Lab08CarloVitali.exe
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\bin\Debug\Lab08CarloVitali.pdb
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\obj\Debug\Lab08CarloVitali.csprojAssemblyReference.cache
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\obj\Debug\Lab08CarloVitali.Form1.resources
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\obj\Debug\Lab08CarloVitali.Properties.Resources.resources
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\obj\Debug\Lab08CarloVitali.csproj.GenerateResource.cache
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\obj\Debug\Lab08CarloVitali.csproj.CoreCompileInputs.cache
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\obj\Debug\Lab08CarloVitali.exe
+C:\Users\cvita\Desktop\laboratorio-08-PastedBud\Lab08CarloVitali\Lab08CarloVitali\obj\Debug\Lab08CarloVitali.pdb
