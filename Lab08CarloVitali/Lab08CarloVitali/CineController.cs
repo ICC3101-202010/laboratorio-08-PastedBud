@@ -16,7 +16,7 @@ namespace Lab08CarloVitali
 
         public void print()
         {
-            //Lista.Text = String.Join(Environment.NewLine, cines);
+            
         }
 
         /*public CineController(Form form)

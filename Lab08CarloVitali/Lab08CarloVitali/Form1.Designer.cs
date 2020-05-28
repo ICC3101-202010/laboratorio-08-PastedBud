@@ -37,6 +37,9 @@ namespace Lab08CarloVitali
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Principal = new System.Windows.Forms.Panel();
+            this.pLista = new System.Windows.Forms.Panel();
+            this.bAtrasLista = new System.Windows.Forms.Button();
+            this.Lista = new System.Windows.Forms.RichTextBox();
             this.pAgregar = new System.Windows.Forms.Panel();
             this.pInfoNuevoLocal = new System.Windows.Forms.Panel();
             this.confirmacionAgregado = new System.Windows.Forms.Panel();
@@ -76,17 +79,14 @@ namespace Lab08CarloVitali
             this.bLista = new System.Windows.Forms.Button();
             this.bRevisar = new System.Windows.Forms.Button();
             this.bAgregar = new System.Windows.Forms.Button();
-            this.pLista = new System.Windows.Forms.Panel();
-            this.Lista = new System.Windows.Forms.RichTextBox();
-            this.bAtrasLista = new System.Windows.Forms.Button();
             this.Principal.SuspendLayout();
+            this.pLista.SuspendLayout();
             this.pAgregar.SuspendLayout();
             this.pInfoNuevoLocal.SuspendLayout();
             this.pInfoNuevoRecreacional.SuspendLayout();
             this.pInfoNuevoRestaurant.SuspendLayout();
             this.pInfoNuevaTienda.SuspendLayout();
             this.pInfoNuevoCine.SuspendLayout();
-            this.pLista.SuspendLayout();
             this.SuspendLayout();
             // 
             // Principal
@@ -102,6 +102,35 @@ namespace Lab08CarloVitali
             this.Principal.Name = "Principal";
             this.Principal.Size = new System.Drawing.Size(517, 375);
             this.Principal.TabIndex = 0;
+            // 
+            // pLista
+            // 
+            this.pLista.Controls.Add(this.bAtrasLista);
+            this.pLista.Controls.Add(this.Lista);
+            this.pLista.Location = new System.Drawing.Point(0, 0);
+            this.pLista.Name = "pLista";
+            this.pLista.Size = new System.Drawing.Size(517, 372);
+            this.pLista.TabIndex = 4;
+            this.pLista.Visible = false;
+            // 
+            // bAtrasLista
+            // 
+            this.bAtrasLista.Location = new System.Drawing.Point(207, 340);
+            this.bAtrasLista.Name = "bAtrasLista";
+            this.bAtrasLista.Size = new System.Drawing.Size(83, 23);
+            this.bAtrasLista.TabIndex = 1;
+            this.bAtrasLista.Text = "atrás";
+            this.bAtrasLista.UseVisualStyleBackColor = true;
+            this.bAtrasLista.Click += new System.EventHandler(this.bAtrasLista_Click);
+            // 
+            // Lista
+            // 
+            this.Lista.Location = new System.Drawing.Point(0, 0);
+            this.Lista.Name = "Lista";
+            this.Lista.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.Lista.Size = new System.Drawing.Size(514, 331);
+            this.Lista.TabIndex = 0;
+            this.Lista.Text = "";
             // 
             // pAgregar
             // 
@@ -485,35 +514,6 @@ namespace Lab08CarloVitali
             this.bAgregar.UseVisualStyleBackColor = true;
             this.bAgregar.Click += new System.EventHandler(this.bAgregar_Click);
             // 
-            // pLista
-            // 
-            this.pLista.Controls.Add(this.bAtrasLista);
-            this.pLista.Controls.Add(this.Lista);
-            this.pLista.Location = new System.Drawing.Point(0, 0);
-            this.pLista.Name = "pLista";
-            this.pLista.Size = new System.Drawing.Size(517, 372);
-            this.pLista.TabIndex = 4;
-            this.pLista.Visible = false;
-            // 
-            // Lista
-            // 
-            this.Lista.Location = new System.Drawing.Point(0, 0);
-            this.Lista.Name = "Lista";
-            this.Lista.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.Lista.Size = new System.Drawing.Size(514, 331);
-            this.Lista.TabIndex = 0;
-            this.Lista.Text = "";
-            // 
-            // bAtrasLista
-            // 
-            this.bAtrasLista.Location = new System.Drawing.Point(207, 340);
-            this.bAtrasLista.Name = "bAtrasLista";
-            this.bAtrasLista.Size = new System.Drawing.Size(83, 23);
-            this.bAtrasLista.TabIndex = 1;
-            this.bAtrasLista.Text = "atrás";
-            this.bAtrasLista.UseVisualStyleBackColor = true;
-            this.bAtrasLista.Click += new System.EventHandler(this.bAtrasLista_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,8 +521,9 @@ namespace Lab08CarloVitali
             this.ClientSize = new System.Drawing.Size(515, 375);
             this.Controls.Add(this.Principal);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = " ";
             this.Principal.ResumeLayout(false);
+            this.pLista.ResumeLayout(false);
             this.pAgregar.ResumeLayout(false);
             this.pAgregar.PerformLayout();
             this.pInfoNuevoLocal.ResumeLayout(false);
@@ -534,7 +535,6 @@ namespace Lab08CarloVitali
             this.pInfoNuevaTienda.PerformLayout();
             this.pInfoNuevoCine.ResumeLayout(false);
             this.pInfoNuevoCine.PerformLayout();
-            this.pLista.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
