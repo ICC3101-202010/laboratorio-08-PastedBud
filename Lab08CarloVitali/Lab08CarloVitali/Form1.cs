@@ -22,35 +22,12 @@ namespace Lab08CarloVitali
         List<Restaurante> restaurantes = new List<Restaurante>();
         List<Recreacional> recreacionales = new List<Recreacional>();
         List<Tienda> tiendas = new List<Tienda>();
+        List<string> nombres_dueños = new List<string>();
+
         //public delegate bool AgregarTiendaEventHandler(object source, )
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void bAgregar_Click(object sender, EventArgs e)
-        {
-            pAgregar.Visible = true;
-            input_Nombre_Dueño.Text = "";
-            input_Numero_Identificador.Text = "";
-            input_Horario.Text = "";
-            input_Categorias.Text = "";
-            inputMesa.Text = "";
-            inputCantSalas.Text = "";
-            pInfoNuevaTienda.Visible = false;
-            
-
-        }
-
-        private void bRevisar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bLista_Click(object sender, EventArgs e)
-        {
-            Lista.Text = "";
-            pLista.Visible = true;
             Tienda tienda = new Tienda();
             tienda.Nombre_dueño = "Carlo";
             tienda.Num_Id = "123";
@@ -70,7 +47,6 @@ namespace Lab08CarloVitali
             tienda2.Horario_Atencion = "8am-6pm";
             tienda2.Categorias = "Alcohol";
             tiendas.Add(tienda2);
-
             Restaurante restaurante = new Restaurante();
             restaurante.Nombre_dueño = "Pascale";
             restaurante.Num_Id = "123";
@@ -125,43 +101,88 @@ namespace Lab08CarloVitali
             cine2.Horario_Atencion = "8am-6pm";
             cine2.Num_Salas = "8";
             cines.Add(cine2);
+        }
+
+        private void bAgregar_Click(object sender, EventArgs e)
+        {
+            pAgregar.Visible = true;
+            input_Nombre_Dueño.Text = "";
+            input_Numero_Identificador.Text = "";
+            input_Horario.Text = "";
+            input_Categorias.Text = "";
+            inputMesa.Text = "";
+            inputCantSalas.Text = "";
+            pInfoNuevaTienda.Visible = false;
+            
+
+        }
+
+        private void bRevisar_Click(object sender, EventArgs e)
+        {
+            pAgregar.Visible = true;
+            pInfoNuevoLocal.Visible = true;
+            confirmacionAgregado.Visible = true;
+            pLista.Visible = true;
+            pRevisar.Visible = true;
+            foreach (Tienda tienda in tiendas)
+            {
+                revisarBox.Items.Add("Nombre Dueño: "+ tienda.Nombre_dueño + "     Tipo Local: Tienda      ");
+                
+            }
+            
+            foreach (Restaurante restaurante in restaurantes)
+            {
+                revisarBox.Items.Add("Nombre Dueño: " + restaurante.Nombre_dueño + "     Tipo Local: Restaurant  ");
+
+            }
+            foreach (Cine cine in cines)
+            {
+                revisarBox.Items.Add("Nombre Dueño: " + cine.Nombre_dueño + "     Tipo Local: Cine        ");
+
+            }
+            foreach (Recreacional recreacional in recreacionales)
+            {
+                revisarBox.Items.Add("Nombre Dueño: " + recreacional.Nombre_dueño + "     Tipo Local: Recreacional");
+
+            }
+        }
+
+        private void bLista_Click(object sender, EventArgs e)
+        {
+            Lista.Text = "";
+            pAgregar.Visible = true;
+            pInfoNuevoLocal.Visible = true;
+            confirmacionAgregado.Visible = true;
+            pLista.Visible = true;
+            
             foreach (Tienda cine3 in tiendas)
             {
                 Lista.Text += ( "Nombre Dueño: " + cine3.Nombre_dueño +"    Numero de Id: " + cine3.Num_Id + "    Horario de Atencion: " + cine3.Horario_Atencion + "    Categorias Tienda: " + cine3.Categorias );
-                Lista.Text += "                                                                                                                                                          ";
-            
+                Lista.Text += "\r";
+                Lista.Text += "\r";
             }
             foreach (Cine cine3 in cines)
             {
                 Lista.Text += ("Nombre Dueño: " + cine3.Nombre_dueño + "    Numero de Id: " + cine3.Num_Id + "    Horario de Atencion: " + cine3.Horario_Atencion + "    Cantidad Salas: " + cine3.Num_Salas);
-                Lista.Text += "                                                                                                                                                 ";
-
+                Lista.Text += "\r";
+                Lista.Text += "\r";
             }
             foreach (Restaurante cine3 in restaurantes)
             {
                 Lista.Text += ("Nombre Dueño: " + cine3.Nombre_dueño + "    Numero de Id: " + cine3.Num_Id + "    Horario de Atencion: " + cine3.Horario_Atencion + "    Posee Mesas Exclusivas: " + cine3.Mesas_exclusivas);
-                Lista.Text += "                                                                                                                                                                       ";
-
+                Lista.Text += "\r";
+                Lista.Text += "\r";
             }
             foreach (Recreacional cine3 in recreacionales)
             {
                 Lista.Text += ("Nombre Dueño: " + cine3.Nombre_dueño + "    Numero de Id: " + cine3.Num_Id + "    Horario de Atencion: " + cine3.Horario_Atencion );
-                Lista.Text += "                                                                                                                                                 ";
-                
+                Lista.Text += "\r";
+                Lista.Text += "\r";
             }
 
 
         }
 
-        private void tAgregar_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pInfoNuevaTienda_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void bTienda_Click(object sender, EventArgs e)
         {
@@ -292,6 +313,7 @@ namespace Lab08CarloVitali
             restaurantes.Add(restaurante);
             MessageBox.Show("Haz Agregado el Nuevo Restaurant con Exito!");
             confirmacionAgregado.Visible = true;
+            confirmacionAgregado.BringToFront();
             Thread.Sleep(1000);
             confirmacionAgregado.Visible = false;
             pAgregar.Visible = false;
@@ -300,7 +322,7 @@ namespace Lab08CarloVitali
             pInfoNuevaTienda.Visible = false;
             pInfoNuevoRestaurant.Visible = false;
             pInfoNuevoRecreacional.Visible = false;
-
+            
             /*IFormatter formatter = new BinaryFormatter();
             Stream stream = new FileStream("Restaurantes.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, restaurantController);
@@ -332,6 +354,7 @@ namespace Lab08CarloVitali
             recreacionales.Add(recreacional);
             MessageBox.Show("Haz Agregado el Nuevo Local Recreacional con Exito!");
             confirmacionAgregado.Visible = true;
+            confirmacionAgregado.BringToFront();
             Thread.Sleep(1000);
             confirmacionAgregado.Visible = false;
             pAgregar.Visible = false;
@@ -350,7 +373,70 @@ namespace Lab08CarloVitali
 
         private void bAtrasLista_Click(object sender, EventArgs e)
         {
+            pAgregar.Visible = false;
+            pInfoNuevoLocal.Visible = false;
+            confirmacionAgregado.Visible = false;
             pLista.Visible = false;
+        }
+
+        
+
+        
+
+        private void batrasRevisar_Click(object sender, EventArgs e)
+        {
+            pAgregar.Visible = false;
+            pInfoNuevoLocal.Visible = false;
+            confirmacionAgregado.Visible = false;
+            pLista.Visible = false;
+            pRevisar.Visible = false;
+            
+        }
+
+        private void bRevisarSeleccionado_Click(object sender, EventArgs e)
+        {
+            revisarBox.Text = "Locales";
+            string informacion = "";
+            string seleccionado = (string)revisarBox.SelectedItem;
+            prueba.Text = Convert.ToString(seleccionado);
+            prueba.Text = prueba.Text.Remove(prueba.Text.Length - 29, 29);
+            prueba.Text = prueba.Text.Remove(0, 14);
+            string dueño = Convert.ToString(prueba.Text);
+            foreach (Tienda tienda in tiendas)
+            {
+                if (tienda.Nombre_dueño == dueño)
+                {
+                    informacion = "Nombre Dueño: " + tienda.Nombre_dueño + "\r" + "Numero Identificador: " + tienda.Num_Id + "\r" + "Horario Atencion: " + tienda.Horario_Atencion + "\r" + "Categorias: " + tienda.Categorias;
+                    
+                }
+
+            }
+
+            foreach (Restaurante restaurante in restaurantes)
+            {
+                if (restaurante.Nombre_dueño == dueño)
+                {
+                    informacion = "Nombre Dueño: " + restaurante.Nombre_dueño + "\r" + "Numero Identificador: " + restaurante.Num_Id + "\r" + "Horario Atencion: " + restaurante.Horario_Atencion + "\r" + "Cuenta Con Mesas Exclusivas: " + restaurante.Mesas_exclusivas;
+
+                }
+            }
+            foreach (Cine cine in cines)
+            {
+                if (cine.Nombre_dueño == dueño)
+                {
+                     informacion = "Nombre Dueño: " + cine.Nombre_dueño+ "\r" + "Numero Identificador: " + cine.Num_Id + "\r" + "Horario Atencion: " + cine.Horario_Atencion + "\r" + "Cantidad de Salas: " + cine.Num_Salas;
+
+                }
+            }
+            foreach (Recreacional recreacional in recreacionales)
+            {
+                if (recreacional.Nombre_dueño == dueño)
+                {
+                     informacion = "Nombre Dueño: " + recreacional.Nombre_dueño + "\r" + "Numero Identificador: " + recreacional.Num_Id + "\r" + "Horario Atencion: " + recreacional.Horario_Atencion ;
+
+                }
+            }
+            MessageBox.Show(informacion);
         }
     }
 }

@@ -37,6 +37,12 @@ namespace Lab08CarloVitali
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.Principal = new System.Windows.Forms.Panel();
+            this.pRevisar = new System.Windows.Forms.Panel();
+            this.prueba = new System.Windows.Forms.TextBox();
+            this.batrasRevisar = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.bRevisarSeleccionado = new System.Windows.Forms.Button();
+            this.revisarBox = new System.Windows.Forms.ComboBox();
             this.pLista = new System.Windows.Forms.Panel();
             this.bAtrasLista = new System.Windows.Forms.Button();
             this.Lista = new System.Windows.Forms.RichTextBox();
@@ -79,10 +85,13 @@ namespace Lab08CarloVitali
             this.bLista = new System.Windows.Forms.Button();
             this.bRevisar = new System.Windows.Forms.Button();
             this.bAgregar = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.Principal.SuspendLayout();
+            this.pRevisar.SuspendLayout();
             this.pLista.SuspendLayout();
             this.pAgregar.SuspendLayout();
             this.pInfoNuevoLocal.SuspendLayout();
+            this.confirmacionAgregado.SuspendLayout();
             this.pInfoNuevoRecreacional.SuspendLayout();
             this.pInfoNuevoRestaurant.SuspendLayout();
             this.pInfoNuevaTienda.SuspendLayout();
@@ -93,23 +102,85 @@ namespace Lab08CarloVitali
             // 
             this.Principal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Principal.BackgroundImage")));
             this.Principal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Principal.Controls.Add(this.pLista);
             this.Principal.Controls.Add(this.pAgregar);
             this.Principal.Controls.Add(this.bLista);
             this.Principal.Controls.Add(this.bRevisar);
             this.Principal.Controls.Add(this.bAgregar);
             this.Principal.Location = new System.Drawing.Point(0, 0);
             this.Principal.Name = "Principal";
-            this.Principal.Size = new System.Drawing.Size(517, 375);
+            this.Principal.Size = new System.Drawing.Size(541, 375);
             this.Principal.TabIndex = 0;
+            // 
+            // pRevisar
+            // 
+            this.pRevisar.BackColor = System.Drawing.Color.White;
+            this.pRevisar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pRevisar.Controls.Add(this.panel1);
+            this.pRevisar.Controls.Add(this.prueba);
+            this.pRevisar.Controls.Add(this.batrasRevisar);
+            this.pRevisar.Controls.Add(this.label12);
+            this.pRevisar.Controls.Add(this.bRevisarSeleccionado);
+            this.pRevisar.Controls.Add(this.revisarBox);
+            this.pRevisar.Location = new System.Drawing.Point(0, 0);
+            this.pRevisar.Name = "pRevisar";
+            this.pRevisar.Size = new System.Drawing.Size(541, 375);
+            this.pRevisar.TabIndex = 5;
+            this.pRevisar.Visible = false;
+            // 
+            // prueba
+            // 
+            this.prueba.Location = new System.Drawing.Point(207, 277);
+            this.prueba.Name = "prueba";
+            this.prueba.Size = new System.Drawing.Size(100, 20);
+            this.prueba.TabIndex = 4;
+            this.prueba.Visible = false;
+            // 
+            // batrasRevisar
+            // 
+            this.batrasRevisar.Location = new System.Drawing.Point(140, 213);
+            this.batrasRevisar.Name = "batrasRevisar";
+            this.batrasRevisar.Size = new System.Drawing.Size(75, 23);
+            this.batrasRevisar.TabIndex = 3;
+            this.batrasRevisar.Text = "atrás";
+            this.batrasRevisar.UseVisualStyleBackColor = true;
+            this.batrasRevisar.Click += new System.EventHandler(this.batrasRevisar_Click);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(158, 102);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(199, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Selecciona el Local que Quieres Revisar";
+            // 
+            // bRevisarSeleccionado
+            // 
+            this.bRevisarSeleccionado.Location = new System.Drawing.Point(267, 213);
+            this.bRevisarSeleccionado.Name = "bRevisarSeleccionado";
+            this.bRevisarSeleccionado.Size = new System.Drawing.Size(162, 23);
+            this.bRevisarSeleccionado.TabIndex = 1;
+            this.bRevisarSeleccionado.Text = "Revisar Local Seleccionado";
+            this.bRevisarSeleccionado.UseVisualStyleBackColor = true;
+            this.bRevisarSeleccionado.Click += new System.EventHandler(this.bRevisarSeleccionado_Click);
+            // 
+            // revisarBox
+            // 
+            this.revisarBox.FormattingEnabled = true;
+            this.revisarBox.Location = new System.Drawing.Point(51, 164);
+            this.revisarBox.Name = "revisarBox";
+            this.revisarBox.Size = new System.Drawing.Size(425, 21);
+            this.revisarBox.TabIndex = 0;
+            this.revisarBox.Text = "Locales";
             // 
             // pLista
             // 
+            this.pLista.Controls.Add(this.pRevisar);
             this.pLista.Controls.Add(this.bAtrasLista);
             this.pLista.Controls.Add(this.Lista);
             this.pLista.Location = new System.Drawing.Point(0, 0);
             this.pLista.Name = "pLista";
-            this.pLista.Size = new System.Drawing.Size(517, 372);
+            this.pLista.Size = new System.Drawing.Size(541, 372);
             this.pLista.TabIndex = 4;
             this.pLista.Visible = false;
             // 
@@ -127,14 +198,17 @@ namespace Lab08CarloVitali
             // 
             this.Lista.Location = new System.Drawing.Point(0, 0);
             this.Lista.Name = "Lista";
-            this.Lista.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
-            this.Lista.Size = new System.Drawing.Size(514, 331);
+            this.Lista.ReadOnly = true;
+            this.Lista.Size = new System.Drawing.Size(541, 331);
             this.Lista.TabIndex = 0;
             this.Lista.Text = "";
+            this.Lista.WordWrap = false;
             // 
             // pAgregar
             // 
             this.pAgregar.BackColor = System.Drawing.Color.White;
+            this.pAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pAgregar.BackgroundImage")));
+            this.pAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pAgregar.Controls.Add(this.pInfoNuevoLocal);
             this.pAgregar.Controls.Add(this.bRecreacional);
             this.pAgregar.Controls.Add(this.bCine);
@@ -142,15 +216,16 @@ namespace Lab08CarloVitali
             this.pAgregar.Controls.Add(this.bTienda);
             this.pAgregar.Controls.Add(this.label9);
             this.pAgregar.Controls.Add(this.label10);
-            this.pAgregar.Location = new System.Drawing.Point(0, 12);
+            this.pAgregar.Location = new System.Drawing.Point(0, 0);
             this.pAgregar.Name = "pAgregar";
-            this.pAgregar.Size = new System.Drawing.Size(514, 363);
+            this.pAgregar.Size = new System.Drawing.Size(539, 375);
             this.pAgregar.TabIndex = 3;
             this.pAgregar.Visible = false;
             // 
             // pInfoNuevoLocal
             // 
             this.pInfoNuevoLocal.BackColor = System.Drawing.Color.White;
+            this.pInfoNuevoLocal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pInfoNuevoLocal.Controls.Add(this.confirmacionAgregado);
             this.pInfoNuevoLocal.Controls.Add(this.pInfoNuevoRecreacional);
             this.pInfoNuevoLocal.Controls.Add(this.pInfoNuevoRestaurant);
@@ -163,30 +238,32 @@ namespace Lab08CarloVitali
             this.pInfoNuevoLocal.Controls.Add(this.label1);
             this.pInfoNuevoLocal.Controls.Add(this.input_Numero_Identificador);
             this.pInfoNuevoLocal.Controls.Add(this.input_Nombre_Dueño);
-            this.pInfoNuevoLocal.Location = new System.Drawing.Point(0, 12);
+            this.pInfoNuevoLocal.Location = new System.Drawing.Point(0, 0);
             this.pInfoNuevoLocal.Name = "pInfoNuevoLocal";
-            this.pInfoNuevoLocal.Size = new System.Drawing.Size(503, 366);
+            this.pInfoNuevoLocal.Size = new System.Drawing.Size(541, 372);
             this.pInfoNuevoLocal.TabIndex = 5;
             this.pInfoNuevoLocal.Visible = false;
-            this.pInfoNuevoLocal.Paint += new System.Windows.Forms.PaintEventHandler(this.pInfoNuevaTienda_Paint);
             // 
             // confirmacionAgregado
             // 
             this.confirmacionAgregado.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("confirmacionAgregado.BackgroundImage")));
             this.confirmacionAgregado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.confirmacionAgregado.Location = new System.Drawing.Point(12, 12);
+            this.confirmacionAgregado.Controls.Add(this.pLista);
+            this.confirmacionAgregado.Location = new System.Drawing.Point(0, 0);
             this.confirmacionAgregado.Name = "confirmacionAgregado";
-            this.confirmacionAgregado.Size = new System.Drawing.Size(478, 324);
+            this.confirmacionAgregado.Size = new System.Drawing.Size(541, 375);
             this.confirmacionAgregado.TabIndex = 2;
             this.confirmacionAgregado.Visible = false;
             // 
             // pInfoNuevoRecreacional
             // 
+            this.pInfoNuevoRecreacional.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pInfoNuevoRecreacional.BackgroundImage")));
+            this.pInfoNuevoRecreacional.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pInfoNuevoRecreacional.Controls.Add(this.bAgregarNuevoRecreacional);
             this.pInfoNuevoRecreacional.Controls.Add(this.bAtrasInfoNuevoRecreacional);
             this.pInfoNuevoRecreacional.Location = new System.Drawing.Point(0, 210);
             this.pInfoNuevoRecreacional.Name = "pInfoNuevoRecreacional";
-            this.pInfoNuevoRecreacional.Size = new System.Drawing.Size(514, 162);
+            this.pInfoNuevoRecreacional.Size = new System.Drawing.Size(539, 174);
             this.pInfoNuevoRecreacional.TabIndex = 10;
             this.pInfoNuevoRecreacional.Visible = false;
             // 
@@ -212,6 +289,7 @@ namespace Lab08CarloVitali
             // 
             // pInfoNuevoRestaurant
             // 
+            this.pInfoNuevoRestaurant.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pInfoNuevoRestaurant.BackgroundImage")));
             this.pInfoNuevoRestaurant.Controls.Add(this.label11);
             this.pInfoNuevoRestaurant.Controls.Add(this.bAgregarRestaurant);
             this.pInfoNuevoRestaurant.Controls.Add(this.bAtrasInfoRestaurant);
@@ -220,7 +298,7 @@ namespace Lab08CarloVitali
             this.pInfoNuevoRestaurant.Controls.Add(this.inputMesa);
             this.pInfoNuevoRestaurant.Location = new System.Drawing.Point(3, 207);
             this.pInfoNuevoRestaurant.Name = "pInfoNuevoRestaurant";
-            this.pInfoNuevoRestaurant.Size = new System.Drawing.Size(511, 168);
+            this.pInfoNuevoRestaurant.Size = new System.Drawing.Size(538, 168);
             this.pInfoNuevoRestaurant.TabIndex = 9;
             // 
             // label11
@@ -277,13 +355,15 @@ namespace Lab08CarloVitali
             // 
             // pInfoNuevaTienda
             // 
+            this.pInfoNuevaTienda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pInfoNuevaTienda.BackgroundImage")));
+            this.pInfoNuevaTienda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pInfoNuevaTienda.Controls.Add(this.batrasTienda);
             this.pInfoNuevaTienda.Controls.Add(this.bAgregarTienda);
             this.pInfoNuevaTienda.Controls.Add(this.label5);
             this.pInfoNuevaTienda.Controls.Add(this.input_Categorias);
             this.pInfoNuevaTienda.Location = new System.Drawing.Point(3, 204);
             this.pInfoNuevaTienda.Name = "pInfoNuevaTienda";
-            this.pInfoNuevaTienda.Size = new System.Drawing.Size(514, 171);
+            this.pInfoNuevaTienda.Size = new System.Drawing.Size(538, 180);
             this.pInfoNuevaTienda.TabIndex = 8;
             this.pInfoNuevaTienda.Visible = false;
             // 
@@ -332,13 +412,14 @@ namespace Lab08CarloVitali
             // 
             // pInfoNuevoCine
             // 
+            this.pInfoNuevoCine.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pInfoNuevoCine.BackgroundImage")));
             this.pInfoNuevoCine.Controls.Add(this.bAtrasInfoCine);
             this.pInfoNuevoCine.Controls.Add(this.bAgregarNuevoCine);
             this.pInfoNuevoCine.Controls.Add(this.inputCantSalas);
             this.pInfoNuevoCine.Controls.Add(this.label6);
             this.pInfoNuevoCine.Location = new System.Drawing.Point(0, 219);
             this.pInfoNuevoCine.Name = "pInfoNuevoCine";
-            this.pInfoNuevoCine.Size = new System.Drawing.Size(511, 146);
+            this.pInfoNuevoCine.Size = new System.Drawing.Size(541, 165);
             this.pInfoNuevoCine.TabIndex = 0;
             this.pInfoNuevoCine.Visible = false;
             // 
@@ -430,7 +511,7 @@ namespace Lab08CarloVitali
             // 
             // bRecreacional
             // 
-            this.bRecreacional.Location = new System.Drawing.Point(394, 181);
+            this.bRecreacional.Location = new System.Drawing.Point(422, 320);
             this.bRecreacional.Name = "bRecreacional";
             this.bRecreacional.Size = new System.Drawing.Size(82, 23);
             this.bRecreacional.TabIndex = 4;
@@ -440,7 +521,7 @@ namespace Lab08CarloVitali
             // 
             // bCine
             // 
-            this.bCine.Location = new System.Drawing.Point(270, 181);
+            this.bCine.Location = new System.Drawing.Point(295, 320);
             this.bCine.Name = "bCine";
             this.bCine.Size = new System.Drawing.Size(82, 23);
             this.bCine.TabIndex = 3;
@@ -450,7 +531,7 @@ namespace Lab08CarloVitali
             // 
             // bRestaurante
             // 
-            this.bRestaurante.Location = new System.Drawing.Point(161, 181);
+            this.bRestaurante.Location = new System.Drawing.Point(166, 320);
             this.bRestaurante.Name = "bRestaurante";
             this.bRestaurante.Size = new System.Drawing.Size(82, 23);
             this.bRestaurante.TabIndex = 2;
@@ -460,7 +541,7 @@ namespace Lab08CarloVitali
             // 
             // bTienda
             // 
-            this.bTienda.Location = new System.Drawing.Point(40, 181);
+            this.bTienda.Location = new System.Drawing.Point(36, 320);
             this.bTienda.Name = "bTienda";
             this.bTienda.Size = new System.Drawing.Size(82, 23);
             this.bTienda.TabIndex = 1;
@@ -478,7 +559,7 @@ namespace Lab08CarloVitali
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(157, 115);
+            this.label10.Location = new System.Drawing.Point(172, 22);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(195, 13);
             this.label10.TabIndex = 7;
@@ -514,20 +595,33 @@ namespace Lab08CarloVitali
             this.bAgregar.UseVisualStyleBackColor = true;
             this.bAgregar.Click += new System.EventHandler(this.bAgregar_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Location = new System.Drawing.Point(372, 68);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(155, 70);
+            this.panel1.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(515, 375);
+            this.ClientSize = new System.Drawing.Size(539, 376);
             this.Controls.Add(this.Principal);
             this.Name = "Form1";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = " ";
             this.Principal.ResumeLayout(false);
+            this.pRevisar.ResumeLayout(false);
+            this.pRevisar.PerformLayout();
             this.pLista.ResumeLayout(false);
             this.pAgregar.ResumeLayout(false);
             this.pAgregar.PerformLayout();
             this.pInfoNuevoLocal.ResumeLayout(false);
             this.pInfoNuevoLocal.PerformLayout();
+            this.confirmacionAgregado.ResumeLayout(false);
             this.pInfoNuevoRecreacional.ResumeLayout(false);
             this.pInfoNuevoRestaurant.ResumeLayout(false);
             this.pInfoNuevoRestaurant.PerformLayout();
@@ -584,5 +678,12 @@ namespace Lab08CarloVitali
         private System.Windows.Forms.Panel pLista;
         private System.Windows.Forms.RichTextBox Lista;
         private System.Windows.Forms.Button bAtrasLista;
+        private System.Windows.Forms.Panel pRevisar;
+        private System.Windows.Forms.ComboBox revisarBox;
+        private System.Windows.Forms.Button batrasRevisar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button bRevisarSeleccionado;
+        private System.Windows.Forms.TextBox prueba;
+        private System.Windows.Forms.Panel panel1;
     }
 }
